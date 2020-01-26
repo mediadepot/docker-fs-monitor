@@ -15,7 +15,7 @@ The following ports must be mapped, when running container
 # Volumes
 The following volumes must be mapped, when running container
 
-- /opt/mediadepot/smartmontools/smartd.conf:/etc/smartd.conf:ro
+- /etc/smartd.conf:ro
 - /srv/fs-monitor/scorch
 - /srv/fs-monitor/smartd
 
