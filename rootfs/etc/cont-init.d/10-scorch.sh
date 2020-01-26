@@ -16,7 +16,7 @@ scorch -d /srv/fs-monitor/scorch/ cleanup /media/storage
 DELIM
 
 # check if we should ping a webhook url
-if [[ -z "${SCORCH_WEBHOOK_URL}" ]]; then
+if [[ ! -z "${SCORCH_WEBHOOK_URL}" ]]; then
     echo "curl --retry 3 ${SCORCH_WEBHOOK_URL}" > /srv/fs-monitor/scorch/daily-cron
 fi
 

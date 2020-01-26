@@ -4,7 +4,7 @@
 # smartd test function, via a cron job. This will help ensure that smartd daemon is working??
 
 # check if we should ping a webhook url
-if [[ -z "${SMARTD_WEBHOOK_URL}" ]]; then
+if [[ ! -z "${SMARTD_WEBHOOK_URL}" ]]; then
     # setup cron
 cat > /etc/periodic/daily/smartd <<DELIM
 #!/bin/sh
@@ -31,7 +31,7 @@ fi
 
 # if a PUSHOVER_USER_KEY is provided, we should configure smartd to notify Pushover when a failure occurs
 
-if [[ -z "${PUSHOVER_USER_KEY}" ]]; then
+if [[ ! -z "${PUSHOVER_USER_KEY}" ]]; then
 cat > /etc/smartd_warning.d/pushover <<DELIM
 #!/usr/bin/env python
 
