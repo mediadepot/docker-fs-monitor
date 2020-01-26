@@ -17,7 +17,7 @@ DELIM
 
 # check if we should ping a webhook url
 if [[ ! -z "${SCORCH_WEBHOOK_URL}" ]]; then
-    echo "curl --retry 3 ${SCORCH_WEBHOOK_URL}" > /srv/fs-monitor/scorch/daily-cron
+    echo "curl --retry 3 ${SCORCH_WEBHOOK_URL}" >> /srv/fs-monitor/scorch/daily-cron
 fi
 
 # TODO: how to detect if scorch commands failed, and send an email
