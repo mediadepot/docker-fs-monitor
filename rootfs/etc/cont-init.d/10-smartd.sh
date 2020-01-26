@@ -12,10 +12,12 @@ cat > /etc/periodic/daily/smartd <<DELIM
 DELIM
     chmod +x /etc/periodic/daily/smartd
 
+    echo "/dev/sdc -m @webhook_test -M test" > /etc/smartd.conf.test
+
     # define script to be called by cron daily
 cat > /srv/fs-monitor/smartd/daily-cron <<DELIM
 #!/bin/sh
-/dev/sdc -m @webhook_test -M test
+smartd -c /etc/smartd.conf.test -q onecheck
 DELIM
 
     # define the smartd webhook handler script for testing
